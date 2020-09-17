@@ -36,7 +36,11 @@
   },
   "dependencies": {
     "babel-loader": "^8.1.0",
-    "lodash": "^4.17.20"
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "poper": "^0.1.1",
+    "popper.js": "^1.14.3"
   },
   "optionalDependencies": {
     "win-node-env": "^0.4.0"

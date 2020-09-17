@@ -1,5 +1,5 @@
 import _ from "lodash";
-import "./scss/main.scss";
+// import "./scss/main.scss";
 // import "./css/main.css";
 import { sayHi } from "./js/util";
 

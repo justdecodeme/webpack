@@ -1,38 +1,62 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
 	mode: "development",
 	// devtool: "none",
-	entry: "./src/index.js",
+	entry: {
+		main: "./src/index.js",
+		vendor: "./src/vendor.js",
+	},
+
 	module: {
 		rules: [
+			// {
+			// 	/* CSS RULES */
+			// 	// test: /\.css$/i,
+			// 	// use: ["style-loader", "css-loader"],
+
+			// 	/* SCSS without sourcemap */
+			// 	// test: /\.scss$/i,
+			// 	// use: ["style-loader", "css-loader", "sass-loader"],
+
+			// 	/* SCSS with sourcemaps */
+			// 	test: /\.scss$/i,
+			// 	use: [
+			// 		/* 4. Injects styles into DOM */
+			// 		{ loader: "style-loader" },
+			// 		/* 3. Turns css into commonjs */
+			// 		{
+			// 			loader: "css-loader",
+			// 			options: { sourceMap: true },
+			// 		},
+			// 		/* 2. PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more.*/
+			// 		{ loader: "postcss-loader", options: { sourceMap: true } },
+			// 		/* 1. Turns sass into css */
+			// 		{
+			// 			loader: "sass-loader",
+			// 			options: { sourceMap: true },
+			// 		},
+			// 	],
+			// },
+
+			/**
+			 * * Exports HTML as string. HTML is minimized when the compiler demands.
+			 */
 			{
-				/**
-				 * * CSS RULES
-				 */
-				// test: /\.css$/i,
-				// use: ["style-loader", "css-loader"],
-				/**
-				 * * SCSS without sourcemap
-				 */
-				// test: /\.scss$/i,
-				// use: ["style-loader", "css-loader", "sass-loader"],
-				/**
-				 * * SCSS with sourcemaps
-				 */
-				test: /\.scss$/i,
-				use: [
-					{ loader: "style-loader" },
-					{ loader: "css-loader", options: { sourceMap: true } },
-					{ loader: "postcss-loader", options: { sourceMap: true } },
-					{ loader: "sass-loader", options: { sourceMap: true } },
-				],
-			},
-			{
-				test: /\.html$/,
+				test: /\.html$/i,
 				use: ["html-loader"],
+				// loader: "html-loader",
+				// options: {
+				// 	/* Enables/Disables attributes handling */
+				// 	attributes: false,
+				// 	/* Tell html-loader to minimize HTML */
+				// 	minimize: true,
+				// },
 			},
+
+			/**
+			 * * Resolves import/require() on a file into a url and emits the file into the output directory
+			 */
 			{
 				test: /\.(svg|png|jpg|jpeg|gif)$/,
 				use: {
@@ -45,7 +69,14 @@ module.exports = {
 			},
 		],
 	},
+
+	/**
+	 * TODO: index.html | product.html | *.html
+	 */
 	plugins: [
+		/**
+		 * * Put bundle files at the end of this file
+		 */
 		new HtmlWebpackPlugin({
 			template: "./src/template.html",
 		}),
