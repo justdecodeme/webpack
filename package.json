@@ -39,6 +39,7 @@
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "poper": "^0.1.1",
     "popper.js": "^1.14.3"
   },

@@ -1,5 +1,3 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 module.exports = {
 	mode: "development",
 	// devtool: "none",
@@ -69,16 +67,4 @@ module.exports = {
 			},
 		],
 	},
-
-	/**
-	 * TODO: index.html | product.html | *.html
-	 */
-	plugins: [
-		/**
-		 * * Put bundle files at the end of this file
-		 */
-		new HtmlWebpackPlugin({
-			template: "./src/template.html",
-		}),
-	],
 };
