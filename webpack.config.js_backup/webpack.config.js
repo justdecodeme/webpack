@@ -36,4 +36,8 @@ module.exports = {
 			template: "./src/template.html",
 		}),
 	],
+	output: {
+		filename: "bundle.[hash].js",
+		path: path.resolve(__dirname, "dist"),
+	},
 };

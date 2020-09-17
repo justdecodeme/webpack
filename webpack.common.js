@@ -2,28 +2,52 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-	entry: {
-		index: { import: "./src/js/index.js", dependOn: "shared" },
-		sum: { import: "./src/js/sum.js", dependOn: "shared" },
-		shared: "lodash",
-	},
+	mode: "development",
+	// devtool: "none",
+	entry: "./src/index.js",
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
-				exclude: /(node_modules)/,
-				loader: "babel-loader",
+				/**
+				 * * CSS RULES
+				 */
+				// test: /\.css$/i,
+				// use: ["style-loader", "css-loader"],
+				/**
+				 * * SCSS without sourcemap
+				 */
+				// test: /\.scss$/i,
+				// use: ["style-loader", "css-loader", "sass-loader"],
+				/**
+				 * * SCSS with sourcemaps
+				 */
+				test: /\.scss$/i,
+				use: [
+					{ loader: "style-loader" },
+					{ loader: "css-loader", options: { sourceMap: true } },
+					{ loader: "postcss-loader", options: { sourceMap: true } },
+					{ loader: "sass-loader", options: { sourceMap: true } },
+				],
+			},
+			{
+				test: /\.html$/,
+				use: ["html-loader"],
+			},
+			{
+				test: /\.(svg|png|jpg|jpeg|gif)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "[name].[hash].[ext]",
+						outputPath: "images",
+					},
+				},
 			},
 		],
 	},
-	optimization: {
-		splitChunks: {
-			chunks: "all",
-		},
-	},
-	plugins: [new HtmlWebpackPlugin()],
-	output: {
-		filename: "[name].bundle.js",
-		path: path.resolve(__dirname, "dist"),
-	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: "./src/template.html",
+		}),
+	],
 };
