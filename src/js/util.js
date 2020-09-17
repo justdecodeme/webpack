@@ -1,1 +1,3 @@
-console.log("util.js");
+export const sayHi = () => {
+	console.log("Hi from util.js");
+};

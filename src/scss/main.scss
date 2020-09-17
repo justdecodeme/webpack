@@ -5,4 +5,9 @@ body {
 	display: grid;
 	user-select: none;
 	font-size: responsive;
+	text-align: center;
+
+	img {
+		max-width: 100%;
+	}
 }
