@@ -5,3 +5,4 @@ import { sayHi } from "./js/util";
 
 sayHi();
 console.log(_.join(["Index", "module", "loaded!"], " "));
+console.log("hi");
