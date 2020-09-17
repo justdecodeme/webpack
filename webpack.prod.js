@@ -38,7 +38,7 @@ module.exports = merge(common, {
 		 * * which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps.
 		 */
 		new MiniCssExtractPlugin({
-			filename: "[name].[hash].css",
+			filename: "[name].[hash].bundle.css",
 		}),
 	],
 
