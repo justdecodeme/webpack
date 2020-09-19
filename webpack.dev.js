@@ -2,6 +2,7 @@ const path = require("path");
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 
 module.exports = merge(common, {
 	mode: "development",
@@ -15,10 +16,7 @@ module.exports = merge(common, {
 	module: {
 		rules: [
 			{
-				/**
-				 * TODO: SCSS + CSS loaders
-				 */
-				test: /\.scss$/i,
+				test: /\.(scss|css)$/i,
 				use: [
 					/* 4. Injects styles into DOM */
 					{ loader: "style-loader" },
@@ -59,7 +57,32 @@ module.exports = merge(common, {
 		 * * Put bundle files at the end of this file
 		 */
 		new HtmlWebpackPlugin({
+			title: "Home",
 			template: "./src/index.html",
+			filename: "index.html",
+		}),
+		new HtmlWebpackPlugin({
+			title: "About Us",
+			template: "./src/about-us.html",
+			filename: "about-us.html",
+		}),
+		new HtmlWebpackPlugin({
+			title: "Products",
+			template: "./src/products.html",
+			filename: "products.html",
+		}),
+		new HtmlWebpackPartialsPlugin({
+			path: path.join(__dirname, "./src/views/header.html"),
+			location: "header",
+			template_filename: ["index.html", "about-us.html", "products.html"],
+			options: {
+				appName: "WebAll",
+			},
+		}),
+		new HtmlWebpackPartialsPlugin({
+			path: path.join(__dirname, "./src/views/footer.html"),
+			location: "footer",
+			template_filename: ["index.html", "about-us.html", "products.html"],
 		}),
 	],
 
