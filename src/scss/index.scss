@@ -1,4 +1,4 @@
-$body-color: yellow;
+$body-color: red;
 
 body {
 	background-color: $body-color;
@@ -9,5 +9,12 @@ body {
 
 	img {
 		max-width: 100%;
+	}
+
+	ul {
+		display: flex;
+		li {
+			margin-right: 30px;
+		}
 	}
 }

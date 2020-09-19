@@ -15,7 +15,7 @@ module.exports = merge(common, {
 			new OptimizeCSSAssetsPlugin(),
 			new TerserPlugin(),
 			new HtmlWebpackPlugin({
-				template: "./src/template.html",
+				template: "./src/index.html",
 				minify: {
 					removeAttributeQuotes: true,
 					collapseWhitespace: true,
@@ -28,9 +28,6 @@ module.exports = merge(common, {
 	module: {
 		rules: [
 			{
-				/**
-				 * TODO: SCSS + CSS loaders
-				 */
 				test: /\.scss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
@@ -38,6 +35,18 @@ module.exports = merge(common, {
 					"postcss-loader",
 					"sass-loader",
 				],
+			},
+
+			/* Resolves import/require() on a file into a url and emits the file into the output directory */
+			{
+				test: /\.(svg|png|jpg|jpeg|gif)$/,
+				use: {
+					loader: "file-loader",
+					options: {
+						name: "[name].[hash].[ext]",
+						outputPath: "images",
+					},
+				},
 			},
 		],
 	},
@@ -52,12 +61,12 @@ module.exports = merge(common, {
 		 * * which contains CSS. It supports On-Demand-Loading of CSS and SourceMaps.
 		 */
 		new MiniCssExtractPlugin({
-			filename: "[name].[hash].bundle.css",
+			filename: "css/[name].[hash].bundle.css",
 		}),
 	],
 
 	output: {
-		filename: "[name].[hash].bundle.js",
+		filename: "js/[name].[hash].bundle.js",
 		path: path.resolve(__dirname, "dist"),
 	},
 });
