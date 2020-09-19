@@ -60,16 +60,19 @@ module.exports = merge(common, {
 			title: "Home",
 			template: "./src/index.html",
 			filename: "index.html",
+			chunks: ["index", "vendor"],
 		}),
 		new HtmlWebpackPlugin({
 			title: "About Us",
 			template: "./src/about-us.html",
 			filename: "about-us.html",
+			chunks: ["about-us"],
 		}),
 		new HtmlWebpackPlugin({
 			title: "Products",
 			template: "./src/products.html",
 			filename: "products.html",
+			chunks: ["products"],
 		}),
 		new HtmlWebpackPartialsPlugin({
 			path: path.join(__dirname, "./src/views/header.html"),

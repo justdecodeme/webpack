@@ -1,0 +1,21 @@
+$body-color: yellow;
+
+body {
+	font-size: responsive;
+	text-align: center;
+	display: grid;
+	user-select: none;
+	background-color: $body-color;
+	img {
+		max-width: 100%;
+	}
+}
+
+header {
+	ul {
+		display: flex;
+		li {
+			margin-right: 30px;
+		}
+	}
+}
