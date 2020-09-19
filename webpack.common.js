@@ -1,8 +1,10 @@
 module.exports = {
 	// devtool: "none",
+
 	entry: {
-		index: "./src/js/index.js",
-		vendor: "./src/js/vendor.js",
+		index: { import: "./src/js/index.js", dependOn: "shared" },
+		vendor: { import: "./src/js/vendor.js", dependOn: "shared" },
+		shared: "lodash",
 	},
 
 	module: {

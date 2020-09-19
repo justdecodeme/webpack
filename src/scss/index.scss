@@ -1,11 +1,15 @@
 $body-color: red;
 
 body {
-	background-color: $body-color;
-	display: grid;
-	user-select: none;
 	font-size: responsive;
 	text-align: center;
+	display: grid;
+	display: flex;
+	transition: all 0.5s;
+	user-select: none;
+	background-color: $body-color;
+	background: linear-gradient(to bottom, white, black);
+	transform: rotate(20deg);
 
 	img {
 		max-width: 100%;

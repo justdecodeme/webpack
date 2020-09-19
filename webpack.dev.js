@@ -6,6 +6,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
 	mode: "development",
 
+	optimization: {
+		splitChunks: {
+			chunks: "all",
+		},
+	},
+
 	module: {
 		rules: [
 			{
