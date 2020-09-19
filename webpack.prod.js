@@ -15,21 +15,21 @@ module.exports = merge(common, {
 		minimizer: [
 			new OptimizeCSSAssetsPlugin(),
 			new TerserPlugin(),
-			// new HtmlWebpackPlugin({
-			// 	template: "./src/index.html",
-			// 	minify: {
-			// 		removeAttributeQuotes: true,
-			// 		collapseWhitespace: true,
-			// 		removeComments: true,
-			// 	},
-			// }),
+			new HtmlWebpackPlugin({
+				template: "./src/views/index.html",
+				minify: {
+					removeAttributeQuotes: true,
+					collapseWhitespace: true,
+					removeComments: true,
+				},
+			}),
 		],
 	},
 
 	module: {
 		rules: [
 			{
-				test: /\.(scss|css)$/,
+				test: /\.scss$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					"css-loader",
@@ -64,32 +64,15 @@ module.exports = merge(common, {
 		new MiniCssExtractPlugin({
 			filename: "css/[name].[contenthash].bundle.css",
 		}),
-		new HtmlWebpackPlugin({
-			title: "Home",
-			template: "./src/views/index.html",
-			filename: "index.html",
-			minify: true,
-		}),
-		new HtmlWebpackPlugin({
-			title: "About Us",
-			template: "./src/views/about-us.html",
-			filename: "about-us.html",
-			minify: true,
-		}),
-		new HtmlWebpackPlugin({
-			title: "Products",
-			template: "./src/views/products.html",
-			filename: "products.html",
-			minify: true,
-		}),
-		new HtmlWebpackPartialsPlugin({
-			path: path.join(__dirname, "./src/views/partials/header.html"),
-			location: "navigation",
-			template_filename: ["index.html", "about-us.html", "products.html"],
-			options: {
-				appName: "WebAll",
-			},
-		}),
+		// new HtmlWebpackPlugin({
+		// 	template: "./src/views/index.html",
+		// 	filename: "index.html",
+		// }),
+		// new HtmlWebpackPlugin({
+		// 	template: "./src/views/products.html",
+		// 	filename: "products.html",
+		// 	chunks: [],
+		// }),
 	],
 
 	output: {
