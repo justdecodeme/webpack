@@ -1,8 +1,7 @@
 import _ from "lodash";
 
 import "../scss/index.scss";
-
-// import "./css/main.css";
+import "../css/test.css";
 
 import { sayHi } from "./util";
 
