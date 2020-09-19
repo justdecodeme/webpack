@@ -66,24 +66,24 @@ module.exports = merge(common, {
 		}),
 		new HtmlWebpackPlugin({
 			title: "Home",
-			template: "./src/views/index.html",
+			template: "./src/index.html",
 			filename: "index.html",
 			minify: true,
 		}),
 		new HtmlWebpackPlugin({
 			title: "About Us",
-			template: "./src/views/about-us.html",
+			template: "./src/about-us.html",
 			filename: "about-us.html",
 			minify: true,
 		}),
 		new HtmlWebpackPlugin({
 			title: "Products",
-			template: "./src/views/products.html",
+			template: "./src/products.html",
 			filename: "products.html",
 			minify: true,
 		}),
 		new HtmlWebpackPartialsPlugin({
-			path: path.join(__dirname, "./src/views/partials/header.html"),
+			path: path.join(__dirname, "./src/views/header.html"),
 			location: "header",
 			template_filename: ["index.html", "about-us.html", "products.html"],
 			options: {
@@ -91,7 +91,7 @@ module.exports = merge(common, {
 			},
 		}),
 		new HtmlWebpackPartialsPlugin({
-			path: path.join(__dirname, "./src/views/partials/footer.html"),
+			path: path.join(__dirname, "./src/views/footer.html"),
 			location: "footer",
 			template_filename: ["index.html", "about-us.html", "products.html"],
 		}),
