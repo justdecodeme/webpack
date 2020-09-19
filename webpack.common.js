@@ -5,6 +5,7 @@ module.exports = {
 		// index: { import: "./src/js/index.js", dependOn: "shared" },
 		// vendor: { import: "./src/js/vendor.js", dependOn: "shared" },
 		// shared: "lodash",
+		main: "./src/js/main.js",
 		index: "./src/js/index.js",
 		"about-us": "./src/js/about-us.js",
 		products: "./src/js/products.js",

@@ -1,7 +1,6 @@
 import _ from "lodash";
 import { sayHi } from "./util";
 
-import "../scss/main.scss";
 import "../scss/index.scss";
 
 console.log("Hi from index.js");

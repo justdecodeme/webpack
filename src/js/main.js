@@ -1,4 +1,3 @@
-import "../scss/main.css";
-import "../scss/about-us.scss";
+import "../scss/main.scss";
 
 console.log("Hi from main.js");
