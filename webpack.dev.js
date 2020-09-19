@@ -7,11 +7,12 @@ const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
 module.exports = merge(common, {
 	mode: "development",
 
-	optimization: {
-		splitChunks: {
-			chunks: "all",
-		},
-	},
+	// ? don't know the purpose of this
+	// optimization: {
+	// 	splitChunks: {
+	// 		chunks: "all",
+	// 	},
+	// },
 
 	module: {
 		rules: [
@@ -49,9 +50,6 @@ module.exports = merge(common, {
 		],
 	},
 
-	/**
-	 * TODO: index.html | product.html | *.html
-	 */
 	plugins: [
 		/**
 		 * * Put bundle files at the end of this file
