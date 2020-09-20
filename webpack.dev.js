@@ -62,28 +62,30 @@ module.exports = merge(common, {
 
 	plugins: [
 		/**
-		 * * Put bundle files at the end of this file
+		 * * HTML files
 		 */
 		new HtmlWebpackPlugin({
-			title: "Home",
 			template: "./src/index.html",
 			filename: "index.html",
 			chunks: ["index", "main", "vendor"],
 		}),
 		new HtmlWebpackPlugin({
-			title: "About Us",
 			template: "./src/about-us.html",
 			filename: "about-us.html",
 			chunks: ["about-us", "main"] /* load main.js and main.scss */,
 		}),
 		new HtmlWebpackPlugin({
-			title: "Products",
+			// title: "Products",
 			template: "./src/products.html",
 			filename: "products.html",
 			chunks: [
 				"products",
 			] /* load only main.scss (mentioned in products.js) not main.js */,
 		}),
+
+		/**
+		 * * Partials
+		 */
 		new HtmlWebpackPartialsPlugin({
 			path: path.join(__dirname, "./src/views/header.html"),
 			location: "header",
